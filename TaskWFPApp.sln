@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWFPApp", "TaskWFPApp\TaskWFPApp.csproj", "{DC661D34-93CB-4B75-B483-7A934C4F6C44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWPFApp.Test", "TaskWPFApp.Test\TaskWPFApp.Test.csproj", "{249652CA-8914-4AC8-BDB1-54DD3D707446}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC661D34-93CB-4B75-B483-7A934C4F6C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC661D34-93CB-4B75-B483-7A934C4F6C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC661D34-93CB-4B75-B483-7A934C4F6C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC661D34-93CB-4B75-B483-7A934C4F6C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249652CA-8914-4AC8-BDB1-54DD3D707446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249652CA-8914-4AC8-BDB1-54DD3D707446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249652CA-8914-4AC8-BDB1-54DD3D707446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249652CA-8914-4AC8-BDB1-54DD3D707446}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D4B423D-AC8E-4759-B011-64FD33B952CB}
+	EndGlobalSection
+EndGlobal
