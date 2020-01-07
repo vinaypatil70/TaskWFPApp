@@ -5,42 +5,38 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class TaskProcessingArguments
-    {
-        public bool ISTaskAdded { get; set; }
-        public int PendingTaskCount { get; set; }
-        public string Message { get; set; }
-    }
-
     public class TaskQueue
     {
-        public BlockingCollection<Task> workTaskQueue;
+        private ConcurrentQueue<Task> workTaskQueue;
 
         public TaskQueue(IProducerConsumerCollection<Task> workTaskCollection)
         {
-            workTaskQueue = new BlockingCollection<Task>(workTaskCollection);
+            workTaskQueue = new ConcurrentQueue<Task>(workTaskCollection);
         }
 
         public void EnqueueTask(Action action, CancellationToken cancelToken = default)
         {
             var task = new Task(action, cancelToken);
-            workTaskQueue.TryAdd(task);
+            workTaskQueue.Enqueue(task);
         }
 
         public void DequeueTask()
         {
-            foreach (var task in workTaskQueue.GetConsumingEnumerable())
+            while (true)
             {
-                if (!task.IsCanceled)
+                try
                 {
-                    task.RunSynchronously();
+                    Task task;
+                    if (workTaskQueue.TryDequeue(out task)) { task.RunSynchronously(); }
+                }
+                catch (NullReferenceException ex)
+                {
+                    string w = ex.Message;
+                }
+                catch (Exception ex)
+                {
                 }
             }
-        }
-
-        public void Close()
-        {
-            workTaskQueue.CompleteAdding();
         }
     }
 }

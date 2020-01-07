@@ -3,6 +3,8 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Shouldly;
     using System.Threading;
+    using System.Threading.Tasks;
+    using TaskWFPApp.Common;
     using TaskWFPApp.ViewModel;
 
     [TestClass]
@@ -50,7 +52,7 @@
         }
 
         [TestMethod]
-        public void AddTask_ProccessTask_ReturnsResult()
+        public void AddTasks_Always_EnqueueTask()
         {
             // Arrange
             var vm = new MainWindowViewModel();
@@ -58,10 +60,23 @@
 
             // Act
             vm.AddTask();
-            Thread.Sleep(100);
 
             // Assert
-            vm.Result.Count.ShouldBe(1);
+            vm.Queue.Count.ShouldBe(1);
+        }
+
+        [TestMethod]
+        public void StringPalindrome_Always_ReturnsString()
+        {
+            // Arrange
+            var vm = new MainWindowViewModel();
+            QueueDetails objQueueDetails = new QueueDetails() { QueueID = 1, RandomString = "vinay" };
+
+            // Act
+            vm.StringPalindrome(objQueueDetails);
+
+            // Assert
+            vm.Result.ShouldNotBeEmpty();
         }
     }
 }
