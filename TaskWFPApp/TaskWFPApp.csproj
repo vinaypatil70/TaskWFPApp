@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\QueueDetails.cs" />
     <Compile Include="Common\TaskAdder.cs" />
     <Compile Include="Common\TaskQueue.cs" />
     <Compile Include="App.xaml.cs">

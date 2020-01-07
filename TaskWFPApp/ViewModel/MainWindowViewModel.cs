@@ -6,6 +6,7 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Threading;
     using System.Threading.Tasks;
     using System.Windows.Input;
 
@@ -46,11 +47,12 @@
         public void AddTask()
         {
             taskCount++;
-            this.Queue.Add(string.Format("Task {0} is added.", taskCount));
+            this.Queue.Add($"Task {taskCount} is added.");
         }
 
         public void StartTask()
         {
+
             int numOfServicers = 0;
             numOfServicers = 1;
 

@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using TaskWFPApp.Common;
 
     public class TaskAdder
     {
@@ -36,15 +39,10 @@
 
         public string StringPalindrome(QueueDetails queue)
         {
+            Task.Delay(1000);
             var reversedString = new string(queue.RandomString.Reverse().ToArray());
-            var isPalindrome = (queue.RandomString == reversedString) ? "" : "Not";
-            return string.Format("Task {0} : {1} is {2} palindrome", queue.QueueID, queue.RandomString, isPalindrome);
+            var isPalindrome = (queue.RandomString == reversedString) ? "" : "not";
+            return $"Task {queue.QueueID} : {queue.RandomString} is {isPalindrome} palindrome";
         }
-    }
-
-    public class QueueDetails
-    {
-        public int QueueID { get; set; }
-        public string RandomString { get; set; }
     }
 }
