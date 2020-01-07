@@ -16,12 +16,12 @@
     {
         public BlockingCollection<Task> workTaskQueue;
 
-        public TaskQueue(IProducerConsumerCollection<Task> workTaskCollection, int QueueSize, int timeout)
+        public TaskQueue(IProducerConsumerCollection<Task> workTaskCollection)
         {
             workTaskQueue = new BlockingCollection<Task>(workTaskCollection);
         }
 
-        public void EnqueueTask(Action action, CancellationToken cancelToken = default(CancellationToken))
+        public void EnqueueTask(Action action, CancellationToken cancelToken = default)
         {
             var task = new Task(action, cancelToken);
             workTaskQueue.TryAdd(task);

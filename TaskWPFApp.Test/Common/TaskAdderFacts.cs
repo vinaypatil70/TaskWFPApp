@@ -5,6 +5,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Shouldly;
     using TaskWFPApp;
+    using TaskWFPApp.Common;
 
     [TestClass]
     public class TaskAdderFacts

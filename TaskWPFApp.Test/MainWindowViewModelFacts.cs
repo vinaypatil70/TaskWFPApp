@@ -22,10 +22,11 @@
         }
 
         [TestMethod]
-        public void AddTask_Always_IncreaseTaskCount()
+        public void AddTask_NumberTaskIsInteger_IncreaseTaskCount()
         {
             // Arrange
             var vm = new MainWindowViewModel();
+            vm.NumberTask = "1";
 
             // Act
             vm.AddTask();
@@ -35,14 +36,28 @@
         }
 
         [TestMethod]
-        public void StartTask_Always_RunTask()
+        public void AddTask_NumberTaskIsNotInteger_DoNothing()
         {
             // Arrange
             var vm = new MainWindowViewModel();
-            vm.AddTask();
+            vm.NumberTask = "vinay";
 
             // Act
-            vm.StartTask();
+            vm.AddTask();
+
+            // Assert
+            vm.Queue.Count.ShouldBe(0);
+        }
+
+        [TestMethod]
+        public void AddTask_ProccessTask_ReturnsResult()
+        {
+            // Arrange
+            var vm = new MainWindowViewModel();
+            vm.NumberTask = "1";
+
+            // Act
+            vm.AddTask();
             Thread.Sleep(100);
 
             // Assert

@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading;
     using System.Threading.Tasks;
     using TaskWFPApp.Common;
 
@@ -39,7 +38,6 @@
 
         public string StringPalindrome(QueueDetails queue)
         {
-            Task.Delay(1000);
             var reversedString = new string(queue.RandomString.Reverse().ToArray());
             var isPalindrome = (queue.RandomString == reversedString) ? "" : "not";
             return $"Task {queue.QueueID} : {queue.RandomString} is {isPalindrome} palindrome";
